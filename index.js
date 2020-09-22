@@ -30,5 +30,5 @@ uri,
 );
 
 // set up routes
-
+app.use("/posts", require("./routes/twohalfstory_controllers"))
 app.use("/users", require("./routes/userRouter"));
