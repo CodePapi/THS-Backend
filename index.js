@@ -28,8 +28,8 @@ uri,
     console.log("MongoDB connection established");
   }
 );
-app.use(express.cookieParser());
-app.use(express.session({secret:'yoursecret', cookie:{maxAge:6000}}));
+// app.use(express.cookieParser());
+// app.use(express.session({secret:'secret', cookie:{maxAge:6000}}));
 
 app.use(function(req, res, next) {
   // if now() is after `req.session.cookie.expires`
