@@ -28,7 +28,14 @@ uri,
     console.log("MongoDB connection established");
   }
 );
+app.use(express.cookieParser());
+app.use(express.session({secret:'yoursecret', cookie:{maxAge:6000}}));
 
+app.use(function(req, res, next) {
+  // if now() is after `req.session.cookie.expires`
+  //   regenerate the session
+  next();
+});
 // set up routes
 app.use("/posts", require("./routes/twohalfstory_controllers"))
 app.use("/users", require("./routes/userRouter"));
